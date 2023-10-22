@@ -1,14 +1,10 @@
 <?php
 
-use App\OOP\PHP\BMW;
-use App\OOP\PHP\Mercedes;
-use App\OOP\PHP\Order;
+use App\OOP\PHP\TCPClient;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$bmw = new BMW(320, 2, "Front", "Black");
-$mercedes = new Mercedes(335, 4, "Front", "Red");
-$app = new Order('Tripoli', 'Beirut', 500);
-
-var_dump($app->deliverOrder($bmw));
-var_dump($app->deliverOrder($mercedes));
+$http = new TCPClient("https://rabihmh.tech", 8, 8000);
+var_dump($http->connect());
+var_dump($http->call('/projects'));
+var_dump($http->terminate());
