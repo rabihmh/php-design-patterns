@@ -1,8 +1,10 @@
 <?php
 
-use App\OOP\PHP\SOLID\SRP\Bus;
-use App\OOP\PHP\SOLID\SRP\Driver;
-use App\OOP\PHP\SOLID\SRP\Route;
+use App\OOP\PHP\SOLID\OCP\Bus;
+use App\OOP\PHP\SOLID\OCP\Driver;
+use App\OOP\PHP\SOLID\OCP\MoveOnTheRoads;
+use App\OOP\PHP\SOLID\OCP\Route;
+use App\OOP\PHP\SOLID\OCP\Trip;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 $rabih = new Driver("Rabih Mahmoud", 23, "SA7468566", "Tripoli LB");
@@ -15,4 +17,6 @@ $bus->setNumberOfPassengers(30);
 $bus->setDriver($rabih);
 $bus->addRoute($route80);
 $bus->addRoute($route90);
-$bus->move();
+$bus->setMovable(new MoveOnTheRoads());
+$trip = new Trip($bus, 'R210', 5, 120);
+$trip->move();
