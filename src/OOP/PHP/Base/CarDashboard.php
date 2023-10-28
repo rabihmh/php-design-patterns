@@ -1,6 +1,6 @@
 <?php
 
-namespace App\OOP\PHP;
+namespace App\OOP\PHP\Base;
 
 class CarDashboard
 {
